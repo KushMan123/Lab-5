@@ -13,7 +13,6 @@ int main(){
 	b.insert_data(14);
 	b.insert_data(13);
 	b.insert_data(10);
-	b.display();
 	
 	if(b.Binary_Search(5)){
 		std::cout<<"Found"<<std::endl;

@@ -1,56 +1,38 @@
+#include "sorting/InsertionSort.h"
 #define MAX_SIZE 10
 
 class BinarySearch{
 	private:
-		int element[MAX_SIZE];
+		InsertionSort i;
 		
 	public:
-		BinarySearch();
-		~BinarySearch();
 		void insert_data(int data);
 		bool Binary_Search(int data);
 		void display();
 };
 
-BinarySearch::BinarySearch(){
-	for(int i=0;i<MAX_SIZE;i++){
-		element[i]=0;
-	}
-}
-
-BinarySearch::~BinarySearch(){
-	
-}
 
 void BinarySearch::insert_data(int data){
-	int index=0;
-	while(index<MAX_SIZE){
-		if (element[index]==0){
-			element[index]=data;
-			break;
-		}
-	index++;
-	}	
+	i.insert_data(data);	
 }
 
 void BinarySearch::display(){
-	for(int i=0;i<MAX_SIZE;i++){
-		std::cout<<element[i]<<std::endl;
-	}
+	i.display();
 }
 
 bool BinarySearch::Binary_Search(int data){
+	i.Insert_Sort();
 	int min=0;
 	int max=MAX_SIZE-1;
 	while (max>min){
 		int mid=(min+max)/2;
-		if(element[mid]==data){
+		if(i.get_element(mid)==data){
 			return true;
 		}
-		else if(element[mid]<data){
+		else if(i.get_element(mid)<data){
 			max=mid-1;
 		}
-		else if(element[mid]>data){
+		else if(i.get_element(mid)>data){
 			min=mid+1;
 		}
 	}
